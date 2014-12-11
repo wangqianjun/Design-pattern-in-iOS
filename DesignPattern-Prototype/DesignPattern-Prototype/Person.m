@@ -25,14 +25,21 @@
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    Person *obj = [[self class] allocWithZone:zone];
+    Person *objc = [[self class] allocWithZone:zone];
+    objc.name = [self.name mutableCopy];
+    
+    
+    return objc;
 }
 
 
 #pragma mark - NSMutableCopying 
 
 - (id)mutableCopyWithZone:(NSZone *)zone {
-    
+ 
+    Person *objc = [[self class] allocWithZone:zone];
+
+    return objc;
 }
 
 
